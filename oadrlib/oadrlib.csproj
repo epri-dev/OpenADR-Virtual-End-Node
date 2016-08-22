@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E8CC5A46-6E1F-4C9C-A2F0-2AC604C57B06}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>oadrlib</RootNamespace>
+    <AssemblyName>oadr.lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="lib\helper\Logger.cs" />
+    <Compile Include="lib\helper\OadrCertificatePolicy.cs" />
+    <Compile Include="lib\helper\OadrObjectFactory.cs" />
+    <Compile Include="lib\helper\VEN.cs" />
+    <Compile Include="lib\http\HttpSecuritySettings.cs" />
+    <Compile Include="lib\http\HttpWebRequestWrapper.cs" />
+    <Compile Include="lib\http\IHttp.cs" />
+    <Compile Include="lib\oadr2a\CreatedEvent.cs" />
+    <Compile Include="lib\helper\OadrRequest.cs" />
+    <Compile Include="lib\oadr2a\oadr_20a_oadr_ei_20a_oadr_emix_20a_oadr_pyld_20a_oadr_strm_20a_oadr_xcal_20a.cs" />
+    <Compile Include="lib\oadr2a\RequestEvent.cs" />
+    <Compile Include="lib\helper\StringWriterWithEncoding.cs" />
+    <Compile Include="lib\oadr2a\VEN2a.cs" />
+    <Compile Include="lib\oadr2b\CanceledPartyRegistration.cs" />
+    <Compile Include="lib\oadr2b\CanceledReport.cs" />
+    <Compile Include="lib\oadr2b\CancelOpt.cs" />
+    <Compile Include="lib\oadr2b\CancelPartyRegistration.cs" />
+    <Compile Include="lib\oadr2b\CreatedEvent.cs" />
+    <Compile Include="lib\oadr2b\CreatedEventHelper.cs" />
+    <Compile Include="lib\oadr2b\CreatedReport.cs" />
+    <Compile Include="lib\oadr2b\CreateOpt.cs" />
+    <Compile Include="lib\oadr2b\CreatePartyRegistration.cs" />
+    <Compile Include="lib\oadr2b\DataQuality.cs" />
+    <Compile Include="lib\oadr2b\DurationModifier.cs" />
+    <Compile Include="lib\oadr2b\oadr20b.cs" />
+    <Compile Include="lib\oadr2b\OadrPoll.cs" />
+    <Compile Include="lib\oadr2b\OadrRequest2b.cs" />
+    <Compile Include="lib\oadr2b\OptSchedule.cs" />
+    <Compile Include="lib\oadr2b\QueryRegistration.cs" />
+    <Compile Include="lib\oadr2b\RegisteredReport.cs" />
+    <Compile Include="lib\oadr2b\RegisterReport.cs" />
+    <Compile Include="lib\oadr2b\ReportDescription.cs" />
+    <Compile Include="lib\oadr2b\ReportInterval.cs" />
+    <Compile Include="lib\oadr2b\ReportName.cs" />
+    <Compile Include="lib\oadr2b\ReportWrapper.cs" />
+    <Compile Include="lib\oadr2b\RequestEvent.cs" />
+    <Compile Include="lib\oadr2b\UpdateReport.cs" />
+    <Compile Include="lib\oadr2b\VEN2b.cs" />
+    <Compile Include="lib\RandomHex.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\oadr2b\schema\oadr_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_atom.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_ei_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_emix_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_gml_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_greenbutton.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_ISO_ISO3AlphaCurrencyCode_20100407.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_power_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_pyld_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_siscale_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_strm_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_xcal_20b.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_xmldsig-properties-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_xmldsig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib\oadr2b\schema\oadr_xmldsig11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="oadr.lib.licenseheader" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="oadr_test" GeneratedClassName="oadr">
+  <Profiles />
+  <Settings>
+    <Setting Name="vtnURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://127.0.0.1:8080/OpenADR2/Simple/2.0b</Value>
+    </Setting>
+    <Setting Name="venID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TH_VEN</Value>
+    </Setting>
+    <Setting Name="vtnID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TH_VTN</Value>
+    </Setting>
+    <Setting Name="venPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">testing</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
