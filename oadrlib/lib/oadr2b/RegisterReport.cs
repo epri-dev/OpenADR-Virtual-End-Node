@@ -83,6 +83,15 @@ namespace oadrlib.lib.oadr2b
             request.requestID = requestID;
             request.venID = venID;
 
+            // Test case R1_3170_TH_VTN_1 (test-harness for OpenADR certification
+            // as provided by Quality logic) fails if reportRequestID is not set. 
+            // Report request ID is mandatory in OpenADR for any subsquent request 
+            // when sent for same report.
+            if (reportRequestID != null)
+            {
+                request.reportRequestID = reportRequestID;
+            }
+
             request.oadrReport = new oadrReportType[reports.Count];
 
             int index = 0;
