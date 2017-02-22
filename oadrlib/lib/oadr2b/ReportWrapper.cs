@@ -261,7 +261,9 @@ namespace oadrlib.lib.oadr2b
                 return report;
 
             List<IntervalType> reportIntervals = m_reportIntervals.Values.ToList().OrderBy(o => o.dtstart.datetime).ToList();
-            reportIntervals.Reverse();
+            // Test Case R1_3160_TH_VTN_1: Based on OpenADR specifications, intervals have to be              
+            // in ascending order. Reversing it here converts it into descending order.
+            //reportIntervals.Reverse();
 
             // the dtstart of the report must match the dtstart of the first interval
             report.dtstart = new dtstart();
