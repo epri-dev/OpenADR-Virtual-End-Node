@@ -1,13 +1,13 @@
-﻿using Oadr.Library;
-using Oadr.Library.Profile2B;
-using Oadr.Library.Profile2B.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Xml;
+using Oadr.Library;
+using Oadr.Library.Profile2B;
+using Oadr.Library.Profile2B.Models;
 using Oadr.Ven.Resources;
 
-namespace Oadr.Ven
+namespace Oadr.Ven.Contracts
 {
     public class VenWrapper : ISendReport
     {
@@ -131,7 +131,7 @@ namespace Oadr.Ven
             CreatePartyRegistration createPartyRegistration;
             lock (Ven)
             {
-                createPartyRegistration = Ven.CreatePartyRegistration(RandomHex.Instance().GenerateRandomHex(10), oadrProfileType.Item20b, oadrTransportType.simpleHttp, "", false, false, true);
+                createPartyRegistration = Ven.CreatePartyRegistration(RandomHex.Instance().GenerateRandomHex(10), oadrProfileType.Item20b, oadrTransportType.simpleHttp, "", false, Ven.SignXml, true);
             }
             _callbacks.ProcessCreatePartyRegistration(createPartyRegistration);
 

@@ -17,6 +17,7 @@ using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using Oadr.Ven.Contracts;
 
 namespace Oadr.Ven
 {
@@ -185,6 +186,7 @@ namespace Oadr.Ven
                     {
                         _venWrapper.Ven.LoadCertificateFile(tbClientCertificate.TextBoxText, tbClientCertificatePassword.TextBoxText);
                     }
+                    _venWrapper.Ven.SignXml = cbSignXml.Checked;
                 }
                 _venWrapper.OptType = optType;
                 if (chkDisableHostnameCheck.Checked)
@@ -307,6 +309,8 @@ namespace Oadr.Ven
             tbClientCertificate.Enabled = chkUseSslTls.Checked;
             tbClientCertificatePassword.Enabled = chkUseSslTls.Checked;
             btnChooseClientCertificate.Enabled = chkUseSslTls.Checked;
+            cbSignXml.Enabled = chkUseSslTls.Checked;
+            cbSignXml.Checked = chkUseSslTls.Checked;
 
             // Set the URL to either be "http" or "https" depending on whether encryption is used.
             if (chkUseSslTls.Checked && txtUrl.TextBoxText.StartsWith("http://"))
@@ -317,6 +321,11 @@ namespace Oadr.Ven
             {
                 txtUrl.TextBoxText = txtUrl.TextBoxText.Replace("https://", "http://");
             }
+            SetVenParameters();
+        }
+
+        private void OnSignXmlCheckedChanged(object sender, EventArgs e)
+        {
             SetVenParameters();
         }
         

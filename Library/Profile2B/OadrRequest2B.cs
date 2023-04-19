@@ -23,6 +23,7 @@ namespace Oadr.Library.Profile2B
             {
                 oadrSignedObject = new oadrSignedObject
                 {
+                    Id = "signedObject",
                     Item = obj
                 }
             };

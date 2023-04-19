@@ -14,6 +14,7 @@ namespace Oadr.Library
     {
         private readonly string _basicAuthenticationHeader = string.Empty;
         private readonly IHttpService _httpService;
+        private X509Certificate2 _certificate;
         private X509Certificate2Collection _certificatesCollection;
         private string _venId;
         private string _venName;
@@ -25,6 +26,8 @@ namespace Oadr.Library
         public string Url { get; set; }
 
         public bool UseSsl { get; set; }
+
+        public bool SignXml { get; set; }
 
         public Ven(IHttpService httpService, string url, string venName, string venId = "", string password = "")
         {
@@ -57,6 +60,11 @@ namespace Oadr.Library
             if (_basicAuthenticationHeader.Length != 0)
             {
                 _httpService.SetAuthenticationHeader(_basicAuthenticationHeader);
+            }
+
+            if (SignXml)
+            {
+                requestBody = XmlSigning.Sign(requestBody, _certificate);
             }
             
             _httpService.Post($"{Url}{endPoint}", "application/xml", requestBody, UseSsl ? _certificatesCollection : null);
@@ -114,7 +122,8 @@ namespace Oadr.Library
 
         public void LoadCertificateFile(string file, string password)
         {
-            _certificatesCollection = new X509Certificate2Collection(new X509Certificate2(file, password));
+            _certificate = new X509Certificate2(file, password);
+            _certificatesCollection = new X509Certificate2Collection(_certificate);
         }
 
         public void SetServerCertificateValidationCallback(RemoteCertificateValidationCallback callback)
