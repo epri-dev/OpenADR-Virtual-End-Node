@@ -193,6 +193,9 @@ namespace Oadr.Ven.Contracts
                     }
                 }
 
+                // TODO: In case it is forced re-registration and HTTP Pull Model is used (which it is),
+                // TODO: we need to send empty oadrResponse first for which the VTN will respond with HTTP 200 OK.
+
                 // Registration was either forced, or the VEN isn't registered; initiate the registration process.
                 if (!DoCreatePartyRegistration())
                 {
